@@ -1,4 +1,4 @@
-# agenttest
+# agentape
 
 **Deterministic testing for LLM agents**
 
@@ -35,7 +35,7 @@ Testing LLM agents is expensive and nondeterministic:
 - **Flakiness**: Nondeterministic outputs cause test failures that are difficult to reproduce
 - **CI/CD**: Running tests in CI requires managing API keys and incurs ongoing costs
 
-**agenttest solves this** by recording LLM interactions once and replaying them deterministically on subsequent runs. Tests run in milliseconds with zero API cost.
+**agentape solves this** by recording LLM interactions once and replaying them deterministically on subsequent runs. Tests run in milliseconds with zero API cost.
 
 ---
 
@@ -43,23 +43,23 @@ Testing LLM agents is expensive and nondeterministic:
 
 ```bash
 # Core library
-pip install agenttest
+pip install agentape
 
 # With LangGraph support
-pip install "agenttest[langgraph]"
+pip install "agentape[langgraph]"
 
 # With LlamaIndex support
-pip install "agenttest[llamaindex]"
+pip install "agentape[llamaindex]"
 
 # All integrations
-pip install "agenttest[all]"
+pip install "agentape[all]"
 ```
 
 Alternatively, using `uv`:
 
 ```bash
-uv add agenttest
-uv add "agenttest[langgraph]"
+uv add agentape
+uv add "agentape[langgraph]"
 ```
 
 ---
@@ -71,7 +71,7 @@ uv add "agenttest[langgraph]"
 ```python
 # tests/test_agent.py
 import pytest
-from agenttest import AgentTestSession
+from agentape import AgentTestSession
 
 @pytest.mark.asyncio
 async def test_weather_query():
@@ -141,7 +141,7 @@ A cassette is a JSON file containing recorded LLM request/response pairs:
 
 ### Modes
 
-agenttest operates in three modes:
+agentape operates in three modes:
 
 | Mode | Behavior | When to Use |
 |------|----------|-------------|
@@ -157,7 +157,7 @@ Mode selection (in order of precedence):
 
 ### Proxy Architecture
 
-agenttest runs a local HTTP proxy that intercepts OpenAI-compatible API calls:
+agentape runs a local HTTP proxy that intercepts OpenAI-compatible API calls:
 
 ```
 Your Agent → http://127.0.0.1:<port>/chat/completions → Proxy
@@ -178,7 +178,7 @@ For maximum control, instantiate `AgentTestSession` directly:
 
 ```python
 from pathlib import Path
-from agenttest import AgentTestSession
+from agentape import AgentTestSession
 
 CASSETTE_DIR = Path(__file__).parent / "cassettes"
 
@@ -522,7 +522,7 @@ async with AgentTestSession("test") as session:
 
 ### Mock Tools
 
-**Important**: agenttest records what the LLM _requests_, not what your tools return. Tool execution happens in your application code, not in the proxy.
+**Important**: agentape records what the LLM _requests_, not what your tools return. Tool execution happens in your application code, not in the proxy.
 
 For testing tool execution separately, use standard mocking:
 
@@ -686,8 +686,8 @@ jobs:
 ### Project Structure
 
 ```
-agenttest/
-├── src/agenttest/
+agentape/
+├── src/agentape/
 │   ├── __init__.py
 │   ├── session.py       # AgentTestSession API
 │   ├── proxy.py         # HTTP proxy implementation

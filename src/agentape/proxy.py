@@ -22,10 +22,10 @@ from typing import TYPE_CHECKING, Any
 import aiohttp
 from aiohttp import web
 
-from agenttest.cassette import Cassette, CassetteEntry, _hash_request
+from agentape.cassette import Cassette, CassetteEntry, _hash_request
 
 if TYPE_CHECKING:
-    from agenttest.mock_tools import MockToolRegistry
+    from agentape.mock_tools import MockToolRegistry
 
 logger = logging.getLogger(__name__)
 
@@ -240,7 +240,7 @@ class Proxy:
     ) -> web.Response:
         entry = self._cassette.match(messages, tools)
         if entry is None:
-            from agenttest.cassette import _hash_request
+            from agentape.cassette import _hash_request
 
             raise CassetteMissError(_hash_request(messages, tools), messages)
 

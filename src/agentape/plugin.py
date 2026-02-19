@@ -4,7 +4,7 @@ from typing import AsyncGenerator
 
 import pytest
 
-from agenttest.session import AgentTestSession
+from agentape.session import AgentTestSession
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:
