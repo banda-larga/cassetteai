@@ -776,7 +776,7 @@ MIT License - see LICENSE file for details.
 
 ## Changelog
 
-### v0.1.0 (2025-02-19)
+### v0.1.0 (2026-02-19)
 
 - Initial release
 - OpenAI-compatible proxy with record/replay
