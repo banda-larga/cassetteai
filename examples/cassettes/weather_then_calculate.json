@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "request_hash": "d5d58ac9a62b85cc",
+      "request": {
+        "messages": [
+          {
+            "content": "What is the average temperature of London and Paris?",
+            "role": "user"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771458707-uhBiANGvlaXjoo5axUWS",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771458707,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user is asking for the average temperature of London and Paris. To answer this, I need to get the current weather for both cities first, then calculate the average of their temperatures.\n\nI'll need to:\n1. Get the weather for London\n2. Get the weather for Paris\n3. Calculate the average of the two temperatures\n\nLet me start by getting the weather for both cities.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_3e21dfc1aa614f9e8b2efb8a",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"London\"}"
+                  }
+                },
+                {
+                  "type": "function",
+                  "index": 1,
+                  "id": "call_f92a660810fb45188caeb562",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"Paris\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user is asking for the average temperature of London and Paris. To answer this, I need to get the current weather for both cities first, then calculate the average of their temperatures.\n\nI'll need to:\n1. Get the weather for London\n2. Get the weather for Paris\n3. Calculate the average of the two temperatures\n\nLet me start by getting the weather for both cities."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 409,
+          "completion_tokens": 136,
+          "total_tokens": 545,
+          "cost": 0.0001953765,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00019735,
+            "upstream_inference_prompt_cost": 6.135e-05,
+            "upstream_inference_completions_cost": 0.000136
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 97
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 409,
+      "completion_tokens": 136,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 0
+    },
+    {
+      "request_hash": "7d5d4ec0c9d6d583",
+      "request": {
+        "messages": [
+          {
+            "content": "What is the average temperature of London and Paris?",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_3e21dfc1aa614f9e8b2efb8a",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"London\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_f92a660810fb45188caeb562",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Paris\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "13°C, overcast",
+            "role": "tool",
+            "tool_call_id": "call_3e21dfc1aa614f9e8b2efb8a"
+          },
+          {
+            "content": "17°C, partly cloudy",
+            "role": "tool",
+            "tool_call_id": "call_f92a660810fb45188caeb562"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771458718-Iydg0SFsgkJSoYlsSrXl",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771458718,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user is asking for the average temperature of London and Paris. I now have the current temperatures:\n- London: 13°C\n- Paris: 17°C\n\nTo find the average, I need to calculate (13 + 17) / 2 = 15°C\n\nI can use the calculate function to compute this.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_b2ee6fc12e33493da8f6c4ce",
+                  "function": {
+                    "name": "calculate",
+                    "arguments": "{\"expression\": \"(13 + 17) / 2\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user is asking for the average temperature of London and Paris. I now have the current temperatures:\n- London: 13°C\n- Paris: 17°C\n\nTo find the average, I need to calculate (13 + 17) / 2 = 15°C\n\nI can use the calculate function to compute this."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 495,
+          "completion_tokens": 112,
+          "total_tokens": 607,
+          "cost": 0.0001843875,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 384
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00018625,
+            "upstream_inference_prompt_cost": 7.425e-05,
+            "upstream_inference_completions_cost": 0.000112
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 69
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 495,
+      "completion_tokens": 112,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 1
+    },
+    {
+      "request_hash": "025f62efe499f124",
+      "request": {
+        "messages": [
+          {
+            "content": "What is the average temperature of London and Paris?",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_3e21dfc1aa614f9e8b2efb8a",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"London\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_f92a660810fb45188caeb562",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Paris\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "13°C, overcast",
+            "role": "tool",
+            "tool_call_id": "call_3e21dfc1aa614f9e8b2efb8a"
+          },
+          {
+            "content": "17°C, partly cloudy",
+            "role": "tool",
+            "tool_call_id": "call_f92a660810fb45188caeb562"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_b2ee6fc12e33493da8f6c4ce",
+                "function": {
+                  "name": "calculate",
+                  "arguments": "{\"expression\": \"(13 + 17) / 2\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "15.0",
+            "role": "tool",
+            "tool_call_id": "call_b2ee6fc12e33493da8f6c4ce"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771458728-nx1iM7CVZ0T8mtuhituD",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771458728,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "stop",
+            "native_finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "The current temperature in London is 13°C and in Paris is 17°C. The average temperature between these two cities is 15°C.",
+              "refusal": null,
+              "reasoning": "The user asked for the average temperature of London and Paris. I've retrieved the current temperatures:\n- London: 13°C\n- Paris: 17°C\n\nI then calculated the average: (13 + 17) / 2 = 15.0°C\n\nNow I can provide the answer to the user.",
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user asked for the average temperature of London and Paris. I've retrieved the current temperatures:\n- London: 13°C\n- Paris: 17°C\n\nI then calculated the average: (13 + 17) / 2 = 15.0°C\n\nNow I can provide the answer to the user."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 552,
+          "completion_tokens": 107,
+          "total_tokens": 659,
+          "cost": 0.000187902,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 448
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001898,
+            "upstream_inference_prompt_cost": 8.28e-05,
+            "upstream_inference_completions_cost": 0.000107
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 65
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 552,
+      "completion_tokens": 107,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 2
+    }
+  ]
+}

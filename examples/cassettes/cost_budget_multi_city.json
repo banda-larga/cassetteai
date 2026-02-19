@@ -1,0 +1,570 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "request_hash": "a04c15cd2a5e3df2",
+      "request": {
+        "messages": [
+          {
+            "content": "Compare the weather in London, Paris, Tokyo, and New York. Then calculate the average temperature across all four cities.",
+            "role": "user"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771459471-JdSgq4tCHFyADbDzPWY1",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771459471,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user wants me to:\n1. Get weather information for 4 cities: London, Paris, Tokyo, and New York\n2. Compare the weather across these cities\n3. Calculate the average temperature across all four cities\n\nI need to use the get_weather function for each city first. Let me make those calls.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_a12878324db240c6a01aae36",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"London\"}"
+                  }
+                },
+                {
+                  "type": "function",
+                  "index": 1,
+                  "id": "call_24754612553a416c9a9113e0",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"Paris\"}"
+                  }
+                },
+                {
+                  "type": "function",
+                  "index": 2,
+                  "id": "call_b580ad28e4b2438ba3993b16",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"Tokyo\"}"
+                  }
+                },
+                {
+                  "type": "function",
+                  "index": 3,
+                  "id": "call_d1f5ae36475c41cf87dce34b",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"New York\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user wants me to:\n1. Get weather information for 4 cities: London, Paris, Tokyo, and New York\n2. Compare the weather across these cities\n3. Calculate the average temperature across all four cities\n\nI need to use the get_weather function for each city first. Let me make those calls."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 423,
+          "completion_tokens": 175,
+          "total_tokens": 598,
+          "cost": 0.0002360655,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00023845,
+            "upstream_inference_prompt_cost": 6.345e-05,
+            "upstream_inference_completions_cost": 0.000175
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 76
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 423,
+      "completion_tokens": 175,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 0
+    },
+    {
+      "request_hash": "97ddd37359c7b1d7",
+      "request": {
+        "messages": [
+          {
+            "content": "Compare the weather in London, Paris, Tokyo, and New York. Then calculate the average temperature across all four cities.",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_a12878324db240c6a01aae36",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"London\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_24754612553a416c9a9113e0",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Paris\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_b580ad28e4b2438ba3993b16",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Tokyo\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_d1f5ae36475c41cf87dce34b",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"New York\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "13°C, overcast",
+            "role": "tool",
+            "tool_call_id": "call_a12878324db240c6a01aae36"
+          },
+          {
+            "content": "17°C, partly cloudy",
+            "role": "tool",
+            "tool_call_id": "call_24754612553a416c9a9113e0"
+          },
+          {
+            "content": "26°C, humid",
+            "role": "tool",
+            "tool_call_id": "call_b580ad28e4b2438ba3993b16"
+          },
+          {
+            "content": "22°C, sunny",
+            "role": "tool",
+            "tool_call_id": "call_d1f5ae36475c41cf87dce34b"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771459493-YdbuWx30vQUo4sIVCoAC",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771459493,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user wants me to compare the weather in these four cities and then calculate the average temperature. I have the weather data for all four cities:\n\n- London: 13°C, overcast\n- Paris: 17°C, partly cloudy\n- Tokyo: 26°C, humid\n- New York: 22°C, sunny\n\nNow I need to calculate the average temperature: (13 + 17 + 26 + 22) / 4\n\nLet me use the calculate function to get the average.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_a1258711e40342c1b36bc09f",
+                  "function": {
+                    "name": "calculate",
+                    "arguments": "{\"expression\": \"(13 + 17 + 26 + 22) / 4\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user wants me to compare the weather in these four cities and then calculate the average temperature. I have the weather data for all four cities:\n\n- London: 13°C, overcast\n- Paris: 17°C, partly cloudy\n- Tokyo: 26°C, humid\n- New York: 22°C, sunny\n\nNow I need to calculate the average temperature: (13 + 17 + 26 + 22) / 4\n\nLet me use the calculate function to get the average."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 583,
+          "completion_tokens": 160,
+          "total_tokens": 743,
+          "cost": 0.0002449755,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00024745,
+            "upstream_inference_prompt_cost": 8.745e-05,
+            "upstream_inference_completions_cost": 0.00016
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 105
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 583,
+      "completion_tokens": 160,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 1
+    },
+    {
+      "request_hash": "b083d7b1b741f333",
+      "request": {
+        "messages": [
+          {
+            "content": "Compare the weather in London, Paris, Tokyo, and New York. Then calculate the average temperature across all four cities.",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_a12878324db240c6a01aae36",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"London\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_24754612553a416c9a9113e0",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Paris\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_b580ad28e4b2438ba3993b16",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Tokyo\"}"
+                }
+              },
+              {
+                "type": "function",
+                "id": "call_d1f5ae36475c41cf87dce34b",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"New York\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "13°C, overcast",
+            "role": "tool",
+            "tool_call_id": "call_a12878324db240c6a01aae36"
+          },
+          {
+            "content": "17°C, partly cloudy",
+            "role": "tool",
+            "tool_call_id": "call_24754612553a416c9a9113e0"
+          },
+          {
+            "content": "26°C, humid",
+            "role": "tool",
+            "tool_call_id": "call_b580ad28e4b2438ba3993b16"
+          },
+          {
+            "content": "22°C, sunny",
+            "role": "tool",
+            "tool_call_id": "call_d1f5ae36475c41cf87dce34b"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_a1258711e40342c1b36bc09f",
+                "function": {
+                  "name": "calculate",
+                  "arguments": "{\"expression\": \"(13 + 17 + 26 + 22) / 4\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "19.5",
+            "role": "tool",
+            "tool_call_id": "call_a1258711e40342c1b36bc09f"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771459503-EEF5GMirZMYK10zm2AMq",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771459503,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "stop",
+            "native_finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "Here is the current weather comparison for the four cities:\n\n*   **London:** 13°C, overcast\n*   **Paris:** 17°C, partly cloudy\n*   **Tokyo:** 26°C, humid\n*   **New York:** 22°C, sunny\n\nTokyo is currently the warmest city, while London is the coolest. The average temperature across all four cities is **19.5°C**.",
+              "refusal": null,
+              "reasoning": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task 1: Compare the weather in London, Paris, Tokyo, and New York.\n    *   Task 2: Calculate the average temperature across all four cities.\n    *   Input: User query.\n    *   Tools Available: `get_weather`, `calculate`, `send_alert`.\n    *   Previous Action: I already called `get_weather` for all four cities and `calculate` for the average.\n    *   Current State: I have the weather data and the calculated average. I need to synthesize this into a response.\n\n2.  **Review Tool Outputs:**\n    *   London: 13°C, overcast\n    *   Paris: 17°C, partly cloudy\n    *   Tokyo: 26°C, humid\n    *   New York: 22°C, sunny\n    *   Average Temperature Calculation: 19.5\n\n3.  **Synthesize the Response:**\n    *   Start by listing the weather conditions for each city as retrieved.\n    *   Provide a brief comparison (e.g., Tokyo is the warmest, London is the coolest).\n    *   State the calculated average temperature.\n\n4.  **Drafting the Response:**\n    *   \"Here is the current weather comparison:\"\n    *   London: 13°C, overcast\n    *   Paris: 17°C, partly cloudy\n    *   Tokyo: 26°C, humid\n    *   New York: 22°C, sunny\n    *   \"Tokyo is currently the warmest, while London is the coolest.\"\n    *   \"The average temperature across these four cities is 19.5°C.\"\n\n5.  **Final Review:** Does this answer both parts of the user's prompt? Yes. Is the data accurate based on the tool outputs? Yes.\n\n6.  **Final Output Generation.** (Matches the drafted response).ot",
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task 1: Compare the weather in London, Paris, Tokyo, and New York.\n    *   Task 2: Calculate the average temperature across all four cities.\n    *   Input: User query.\n    *   Tools Available: `get_weather`, `calculate`, `send_alert`.\n    *   Previous Action: I already called `get_weather` for all four cities and `calculate` for the average.\n    *   Current State: I have the weather data and the calculated average. I need to synthesize this into a response.\n\n2.  **Review Tool Outputs:**\n    *   London: 13°C, overcast\n    *   Paris: 17°C, partly cloudy\n    *   Tokyo: 26°C, humid\n    *   New York: 22°C, sunny\n    *   Average Temperature Calculation: 19.5\n\n3.  **Synthesize the Response:**\n    *   Start by listing the weather conditions for each city as retrieved.\n    *   Provide a brief comparison (e.g., Tokyo is the warmest, London is the coolest).\n    *   State the calculated average temperature.\n\n4.  **Drafting the Response:**\n    *   \"Here is the current weather comparison:\"\n    *   London: 13°C, overcast\n    *   Paris: 17°C, partly cloudy\n    *   Tokyo: 26°C, humid\n    *   New York: 22°C, sunny\n    *   \"Tokyo is currently the warmest, while London is the coolest.\"\n    *   \"The average temperature across these four cities is 19.5°C.\"\n\n5.  **Final Review:** Does this answer both parts of the user's prompt? Yes. Is the data accurate based on the tool outputs? Yes.\n\n6.  **Final Output Generation.** (Matches the drafted response).ot"
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 648,
+          "completion_tokens": 523,
+          "total_tokens": 1171,
+          "cost": 0.000613998,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 384
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006202,
+            "upstream_inference_prompt_cost": 9.72e-05,
+            "upstream_inference_completions_cost": 0.000523
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 409
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 648,
+      "completion_tokens": 523,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 2
+    }
+  ]
+}

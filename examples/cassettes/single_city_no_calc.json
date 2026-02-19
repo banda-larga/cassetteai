@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "request_hash": "721d34bf77f705d5",
+      "request": {
+        "messages": [
+          {
+            "content": "What's the weather in Tokyo right now?",
+            "role": "user"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771462196-LyTMF3PV75b5T4XUIMY4",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771462196,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user is asking about the current weather in Tokyo. I have a function called \"get_weather\" that can return current weather for a city. The function requires a \"city\" parameter, and the user has specified \"Tokyo\" as the city they want weather information for. I have all the required parameters to make this function call.\n",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_882c1f086d12437f9049588f",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"Tokyo\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user is asking about the current weather in Tokyo. I have a function called \"get_weather\" that can return current weather for a city. The function requires a \"city\" parameter, and the user has specified \"Tokyo\" as the city they want weather information for. I have all the required parameters to make this function call.\n"
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 423,
+          "completion_tokens": 99,
+          "total_tokens": 522,
+          "cost": 0.0001608255,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00016245,
+            "upstream_inference_prompt_cost": 6.345e-05,
+            "upstream_inference_completions_cost": 9.9e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 68
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 423,
+      "completion_tokens": 99,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 0
+    },
+    {
+      "request_hash": "d6ab58a05ce3c3bc",
+      "request": {
+        "messages": [
+          {
+            "content": "What's the weather in Tokyo right now?",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_882c1f086d12437f9049588f",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Tokyo\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "26°C, humid",
+            "role": "tool",
+            "tool_call_id": "call_882c1f086d12437f9049588f"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771462199-TbyEN0BKpyAvVfzuZEbR",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771462199,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "stop",
+            "native_finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "The user asked about the weather in Tokyo, and I got the response from the weather function. The result shows it's 26°C and humid in Tokyo. I should provide this information to the user in a clear and helpful way.\nThe current weather in Tokyo is 26°C and humid.",
+              "refusal": null,
+              "reasoning": null
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 472,
+          "completion_tokens": 64,
+          "total_tokens": 536,
+          "cost": 0.000133452,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001348,
+            "upstream_inference_prompt_cost": 7.08e-05,
+            "upstream_inference_completions_cost": 6.4e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 472,
+      "completion_tokens": 64,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 1
+    }
+  ]
+}

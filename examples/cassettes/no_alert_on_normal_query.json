@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "request_hash": "635c33ae9bc75a7c",
+      "request": {
+        "messages": [
+          {
+            "content": "What's 15 multiplied by 7?",
+            "role": "user"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771461506-dvdNQWnjJcR69Vlw1EJZ",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771461506,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user is asking me to calculate 15 multiplied by 7. I have a calculate function available that can evaluate basic arithmetic expressions. I should use this function to compute the result.\n\nThe expression would be \"15 * 7\" or \"15 × 7\". I'll use the standard multiplication operator \"*\".",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_117ebb61a7f64cbc891c2e2d",
+                  "function": {
+                    "name": "calculate",
+                    "arguments": "{\"expression\": \"15 * 7\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user is asking me to calculate 15 multiplied by 7. I have a calculate function available that can evaluate basic arithmetic expressions. I should use this function to compute the result.\n\nThe expression would be \"15 * 7\" or \"15 × 7\". I'll use the standard multiplication operator \"*\"."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 409,
+          "completion_tokens": 100,
+          "total_tokens": 509,
+          "cost": 0.0001597365,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00016135,
+            "upstream_inference_prompt_cost": 6.135e-05,
+            "upstream_inference_completions_cost": 0.0001
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 75
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 409,
+      "completion_tokens": 100,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 0
+    },
+    {
+      "request_hash": "c16229a7f6dd109e",
+      "request": {
+        "messages": [
+          {
+            "content": "What's 15 multiplied by 7?",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_117ebb61a7f64cbc891c2e2d",
+                "function": {
+                  "name": "calculate",
+                  "arguments": "{\"expression\": \"15 * 7\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "105",
+            "role": "tool",
+            "tool_call_id": "call_117ebb61a7f64cbc891c2e2d"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771461515-SmHgmWSYg5EkNq5JR9Pw",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771461515,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "stop",
+            "native_finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "The user asked what 15 multiplied by 7 is, and I used the calculate function to get the answer. The result is 105, so I should provide this answer to the user.15 multiplied by 7 equals 105.",
+              "refusal": null,
+              "reasoning": null
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 474,
+          "completion_tokens": 57,
+          "total_tokens": 531,
+          "cost": 0.000126819,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001281,
+            "upstream_inference_prompt_cost": 7.11e-05,
+            "upstream_inference_completions_cost": 5.7e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 474,
+      "completion_tokens": 57,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 1
+    }
+  ]
+}

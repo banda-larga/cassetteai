@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "request_hash": "163966925f765545",
+      "request": {
+        "messages": [
+          {
+            "content": "What's the weather in Atlantis?",
+            "role": "user"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771459117-wAqZnDopg2j5qa83dEVI",
+        "provider": "AtlasCloud",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771459117,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "The user is asking about the weather in Atlantis. I need to use the get_weather function to get the current weather for this city. The function requires a \"city\" parameter, and the user has specified \"Atlantis\" as the city.\n\nLet me call the get_weather function with \"Atlantis\" as the city parameter.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "index": 0,
+                  "id": "call_32e21d53085b44c089b558a6",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"city\": \"Atlantis\"}"
+                  }
+                }
+              ],
+              "reasoning_details": [
+                {
+                  "format": "unknown",
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "The user is asking about the weather in Atlantis. I need to use the get_weather function to get the current weather for this city. The function requires a \"city\" parameter, and the user has specified \"Atlantis\" as the city.\n\nLet me call the get_weather function with \"Atlantis\" as the city parameter."
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 406,
+          "completion_tokens": 97,
+          "total_tokens": 503,
+          "cost": 0.000156321,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001579,
+            "upstream_inference_prompt_cost": 6.09e-05,
+            "upstream_inference_completions_cost": 9.7e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 77
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 406,
+      "completion_tokens": 97,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 0
+    },
+    {
+      "request_hash": "d1dc4aa7d217e484",
+      "request": {
+        "messages": [
+          {
+            "content": "What's the weather in Atlantis?",
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_32e21d53085b44c089b558a6",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"city\": \"Atlantis\"}"
+                }
+              }
+            ]
+          },
+          {
+            "content": "No weather data for 'Atlantis'.",
+            "role": "tool",
+            "tool_call_id": "call_32e21d53085b44c089b558a6"
+          }
+        ],
+        "model": "qwen/qwen3.5-397b-a17b",
+        "stream": false,
+        "temperature": 0.0,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "description": "Return current weather for a city.",
+              "parameters": {
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "calculate",
+              "description": "Evaluate a basic arithmetic expression like '(13 + 17) / 2'.",
+              "parameters": {
+                "properties": {
+                  "expression": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "expression"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_alert",
+              "description": "Send a system alert. Should only be called for serious issues.",
+              "parameters": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "default": "low",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": "gen-1771459126-MSur7D2WeDKBh5AIlhAk",
+        "provider": "Novita",
+        "model": "qwen/qwen3.5-397b-a17b",
+        "object": "chat.completion",
+        "created": 1771459126,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "stop",
+            "native_finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "The user is asking about the weather in Atlantis. I called the get_weather function for Atlantis, but the result shows \"No weather data for 'Atlantis'.\" This makes sense because Atlantis is a mythical/legendary city that doesn't actually exist in reality, so there wouldn't be any real weather data for it.\n\nI should inform the user that there's no weather data available for Atlantis, likely because it's not a real cityI'm sorry, but there's no weather data available for Atlantis. This is likely because Atlantis is a legendary/mythical city that doesn't exist in reality, so there are no actual weather conditions to report for it. If you'd like weather information for a real city, I'd be happy to help with that instead!",
+              "refusal": null,
+              "reasoning": ".",
+              "reasoning_details": [
+                {
+                  "format": null,
+                  "index": 0,
+                  "type": "reasoning.text",
+                  "text": "."
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "",
+        "usage": {
+          "prompt_tokens": 473,
+          "completion_tokens": 159,
+          "total_tokens": 632,
+          "cost": 0.000847638,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0008562,
+            "upstream_inference_prompt_cost": 0.0002838,
+            "upstream_inference_completions_cost": 0.0005724
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1,
+            "audio_tokens": 0
+          }
+        }
+      },
+      "stream_chunks": [],
+      "is_streaming": false,
+      "prompt_tokens": 473,
+      "completion_tokens": 159,
+      "model": "qwen/qwen3.5-397b-a17b",
+      "call_index": 1
+    }
+  ]
+}
